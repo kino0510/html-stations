@@ -13,6 +13,7 @@
   },
   "scripts": {
     "station2:prettier": "prettier -c ./src/station2.html",
+    "station9:prettier": "prettier -c ./src/station9.html",
     "serve": "lite-server"
   }
 }
