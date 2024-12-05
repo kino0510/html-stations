@@ -1,22 +1,54 @@
+// function getData() {
+//     // これから作ろうとしているもので、JavaScriptでフルネームを生成する必要が出てきました。
+//     // ただ現状持っている情報では、名前と苗字をそれぞれのみしかありません。
+//     // そのため、JavaScriptで連結させて生成することにしました。
+//     const test = [
+//         { id: 1, first_name: '優', family_name: '大木', affiliation: 'TechTrain', is_student: false },
+//         { id: 2, first_name: '太郎', family_name: '山田', affiliation: 'HogeHoge大学', is_student: true }
+//     ];
+//     return test.map(buildFullName)
+// }
+
+// function buildFullName(data) {
+//     // Station14の問題はこちらです。想定する答えをここを書いてください。
+//     // 氏名がわかるようにしつつ、半角スペースで繋いでください。
+//     // またtest配列のそれぞれのオブジェクトに対して、full_nameのプロパティが追加されるように実装すること
+// }
+
+// // 出力が想定される答え
+// // const test = [
+// //     {id: 1, full_name: '大木 優', first_name: '優', family_name: '大木',affiliation: 'TechTrain', is_student: false},
+// //     {id: 2, full_name: '山田 太郎', first_name: '太郎', family_name: '山田',affiliation: 'HogeHoge大学', is_student: true}
+// ];
+
 function getData() {
-    // これから作ろうとしているもので、JavaScriptでフルネームを生成する必要が出てきました。
-    // ただ現状持っている情報では、名前と苗字をそれぞれのみしかありません。
-    // そのため、JavaScriptで連結させて生成することにしました。
+    // 名前と苗字を持つオブジェクト配列
     const test = [
         { id: 1, first_name: '優', family_name: '大木', affiliation: 'TechTrain', is_student: false },
         { id: 2, first_name: '太郎', family_name: '山田', affiliation: 'HogeHoge大学', is_student: true }
     ];
-    return test.map(buildFullName)
+
+    // map メソッドを使用して full_name プロパティを追加
+    return test.map(buildFullName);
 }
 
 function buildFullName(data) {
-    // Station14の問題はこちらです。想定する答えをここを書いてください。
-    // 氏名がわかるようにしつつ、半角スペースで繋いでください。
-    // またtest配列のそれぞれのオブジェクトに対して、full_nameのプロパティが追加されるように実装すること
+    // full_name プロパティを追加し、氏名を "苗字 + 半角スペース + 名前" で生成
+    return {
+        ...data,
+        full_name: `${data.family_name} ${data.first_name}`
+    };
 }
 
-// 出力が想定される答え
-// const test = [
-//     {id: 1, full_name: '大木 優', first_name: '優', family_name: '大木',affiliation: 'TechTrain', is_student: false},
-//     {id: 2, full_name: '山田 太郎', first_name: '太郎', family_name: '山田',affiliation: 'HogeHoge大学', is_student: true}
-// ];
+// 結果をHTMLに表示
+document.addEventListener("DOMContentLoaded", function () {
+    const result = getData(); // フルネームを含む新しい配列を取得
+    const ul = document.getElementById('result');
+
+    // // 配列をループしてフルネームをリストとして表示
+    // result.forEach(item => {
+    //     const li = document.createElement('li');
+    //     li.textContent = item.full_name; // フルネームをリストに追加
+    //     ul.appendChild(li);
+    // });
+});
