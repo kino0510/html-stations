@@ -44,11 +44,4 @@ function buildFullName(data) {
 document.addEventListener("DOMContentLoaded", function () {
     const result = getData(); // フルネームを含む新しい配列を取得
     const ul = document.getElementById('result');
-
-    // // 配列をループしてフルネームをリストとして表示
-    // result.forEach(item => {
-    //     const li = document.createElement('li');
-    //     li.textContent = item.full_name; // フルネームをリストに追加
-    //     ul.appendChild(li);
-    // });
 });
